@@ -47,5 +47,10 @@ def download_reel():
     return send_file(path, as_attachment=True)
 
 
+@app.route("/hello"):
+def hello():
+    return "hello"
+
+
 if (__name__ == "__main__"):
     app.run(host='0.0.0.0', debug=False)
