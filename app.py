@@ -47,7 +47,7 @@ def download_reel():
     return send_file(path, as_attachment=True)
 
 
-@app.route("/hello"):
+@app.route("/hello")
 def hello():
     return "hello"
 
