@@ -40,7 +40,7 @@ def download_reel():
     }
     reel = Reel(link)
     reel.scrape(headers=headers)
-
+    print(reel.video_url)
     # Downloading reel to user
     try:
         return redirect(reel.video_url)
