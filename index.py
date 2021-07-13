@@ -8,6 +8,12 @@ import os
 app = Flask(__name__)
 
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -36,7 +42,7 @@ def download_reel():
     reel.download(f"downloads/{fname}.mp4")
     path = "downloads\{}.mp4".format(fname)
 
-    #Downloading reel to user
+    # Downloading reel to user
     return send_file(path, as_attachment=True)
 
 
