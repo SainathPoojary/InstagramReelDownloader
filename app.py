@@ -3,8 +3,6 @@ from flask import send_from_directory, render_template, request, send_file
 from flask.helpers import flash
 from youtube import youtube
 from instascrape import Reel
-import os
-
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
@@ -46,6 +44,6 @@ def download_youtube():
     link = request.form['reelurl']
     url = youtube(link)
     return redirect(url)
-
-# if (__name__ == "__main__"):
-#     app.run(host='0.0.0.0', debug=False)
+ 
+if(__name__=="__main__"):
+    app.run(host='0.0.0.0')
