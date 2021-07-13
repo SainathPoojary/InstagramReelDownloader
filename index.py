@@ -1,7 +1,8 @@
 from re import DEBUG
 from typing import Text
 from flask import Flask
-from flask import *
+from flask import send_from_directory, render_template, request, send_file
+
 from instascrape import Reel
 import os
 
