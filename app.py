@@ -25,10 +25,6 @@ def index():
 
 @app.route("/download_reel", methods=['POST', 'GET'])
 def download_reel():
-    # Deleting Download Folder
-    dir = 'downloads'
-    for f in os.listdir(dir):
-        os.remove(os.path.join(dir, f))
 
     # Instascrape Request
     link = request.form['reelurl']
