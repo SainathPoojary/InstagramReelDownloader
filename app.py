@@ -1,5 +1,3 @@
-from re import DEBUG
-from typing import Text
 from flask import Flask
 from flask import send_from_directory, render_template, request, send_file
 from flask.helpers import flash
@@ -10,11 +8,6 @@ import os
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/')
@@ -54,5 +47,5 @@ def download_youtube():
     url = youtube(link)
     return redirect(url)
 
-if (__name__ == "__main__"):
-    app.run(host='0.0.0.0', debug=False)
+# if (__name__ == "__main__"):
+#     app.run(host='0.0.0.0', debug=False)
