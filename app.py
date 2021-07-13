@@ -1,3 +1,4 @@
+from logging import debug
 from flask import Flask
 from flask import send_from_directory, render_template, request, send_file
 from flask.helpers import flash
@@ -46,4 +47,4 @@ def download_youtube():
     return redirect(url)
  
 if(__name__=="__main__"):
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',debug=True)
