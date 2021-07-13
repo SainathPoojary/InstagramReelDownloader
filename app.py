@@ -2,9 +2,12 @@ from re import DEBUG
 from typing import Text
 from flask import Flask
 from flask import send_from_directory, render_template, request, send_file
+from flask.helpers import flash
 
 from instascrape import Reel
 import os
+
+from werkzeug.utils import redirect
 
 app = Flask(__name__)
 
@@ -38,13 +41,11 @@ def download_reel():
     reel = Reel(link)
     reel.scrape(headers=headers)
 
-    # Downloading reel to website
-    fname = reel.upload_date.strftime("%Y-%m-%d %Hh%Mm")
-    reel.download(f"downloads/{fname}.mp4")
-    path = "downloads\{}.mp4".format(fname)
-
     # Downloading reel to user
-    return send_file(path, as_attachment=True)
+    try:
+        return redirect(reel.video_url)
+    except Exception:
+        return "Try Again Later"
 
 
 @app.route("/hello")
