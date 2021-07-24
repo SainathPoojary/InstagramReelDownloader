@@ -48,7 +48,12 @@ def download_youtube():
  
 @app.route("/sy", methods=['POST', 'GET'])
 def syllabus():
-    # return redirect("https://diploma.vidyalankar.org/wp-content/uploads/Sixth-Semester-Complete-Syllabus-COCMCW.pdf")
-    return render_template("syllabus.html")
+    return render_template("syllabus.html",path="https://diploma.vidyalankar.org/wp-content/uploads/Sixth-Semester-Complete-Syllabus-COCMCW.pdf")
+
+@app.route("/eti", methods=['POST', 'GET'])
+def eti():
+    return render_template("syllabus.html",path="../static/emerging.pdf")
+
+
 if(__name__=="__main__"):
-    app.run(host='0.0.0.0',debug=False)
+    app.run(host='0.0.0.0',debug=True)
