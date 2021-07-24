@@ -46,5 +46,9 @@ def download_youtube():
     url = youtube(link)
     return redirect(url)
  
+@app.route("/sy", methods=['POST', 'GET'])
+def syllabus():
+    return redirect("https://diploma.vidyalankar.org/wp-content/uploads/Sixth-Semester-Complete-Syllabus-COCMCW.pdf")
+
 if(__name__=="__main__"):
     app.run(host='0.0.0.0',debug=False)
