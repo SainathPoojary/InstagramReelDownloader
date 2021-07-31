@@ -5,7 +5,7 @@ from flask.helpers import flash
 from youtube import youtube
 from instascrape import Reel
 from werkzeug.utils import redirect
-
+import os
 app = Flask(__name__)
 
 
@@ -53,6 +53,27 @@ def syllabus():
 @app.route("/eti", methods=['POST', 'GET'])
 def eti():
     return render_template("syllabus.html",path="../static/emerging.pdf")
+
+
+
+app.config["IMAGE_UPLOADS"] = "./static/img/uploads"
+@app.route("/upload-image", methods=["GET", "POST"])
+def upload_image():
+
+    if request.method == "POST":
+
+        if request.files:
+
+            image = request.files["image"]
+
+            image.save(os.path.join(
+                app.config["IMAGE_UPLOADS"], image.filename))
+
+            print("Image saved")
+
+            return redirect(request.url)
+
+    return render_template("upload-image.html")
 
 
 if(__name__=="__main__"):
