@@ -56,7 +56,7 @@ def eti():
 
 
 
-app.config["IMAGE_UPLOADS"] = "./static/img/uploads"
+app.config["IMAGE_UPLOADS"] = "static/img/uploads"
 @app.route("/upload-image", methods=["GET", "POST"])
 def upload_image():
 
