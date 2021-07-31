@@ -7,7 +7,7 @@ from instascrape import Reel
 from werkzeug.utils import redirect
 import os
 app = Flask(__name__)
-
+app.static_folder="./static"
 
 @app.route('/')
 def index():
