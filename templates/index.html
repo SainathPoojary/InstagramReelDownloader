@@ -1,94 +1,60 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="google-site-verification"
-      content="DGzWyr-pRCsQWa8v5VE3SXJwapoGMcNOwc1b5P-JxeE"
-    />
     <title>Instagram Reel Downloader</title>
+    <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <form action="download_reel" method="post">
-      <section class="text-gray-600 body-font relative">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-col text-center w-full mb-12">
-            <h1
-              class="
-                sm:text-3xl
-                text-2xl
-                font-medium
-                title-font
-                mb-4
-                text-gray-900
-              "
-            >
-              Instgram Reel Downloader
-            </h1>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Copy and Paste Reel Url here
-            </p>
-          </div>
-          <div class="lg:w-1/2 md:w-2/3 mx-auto">
-            <div class="flex flex-wrap -m-2">
-              <div class="p-2 w-full">
-                <div class="relative">
-                  <label for="email" class="leading-7 text-sm text-gray-600"
-                    >Enter URL</label
-                  >
-                  <input
-                    type="text"
-                    id="email"
-                    name="reelurl"
-                    class="
-                      w-full
-                      bg-gray-100 bg-opacity-50
-                      rounded
-                      border border-gray-300
-                      focus:border-indigo-500
-                      focus:bg-white
-                      focus:ring-2
-                      focus:ring-indigo-200
-                      text-base
-                      outline-none
-                      text-gray-700
-                      py-1
-                      px-3
-                      leading-8
-                      transition-colors
-                      duration-200
-                      ease-in-out
-                    "
-                  />
-                </div>
-              </div>
-              <div class="p-2 w-full">
-                <input
-                  type="submit"
-                  class="
-                    w-full
-                    text-white
-                    bg-indigo-500
-                    border-0
-                    py-2
-                    px-8
-                    focus:outline-none
-                    hover:bg-indigo-600
-                    rounded
-                    text-lg text-center
-                  "
-                  value="Download"
-                />
-              </div>
-            </div>
-          </div>
+    <nav>
+      <div class="container">
+        <div class="logo">Reel Downloader</div>
+        <div class="links">
+          <a href="https://www.instagram.com/sainathpoojaryy/">Made by</a>
         </div>
-      </section>
-    </form>
+      </div>
+    </nav>
+    <section class="hero container">
+      <!-- <div class="aligner"> -->
+      <div class="left">
+        <div class="title">Instagram Reel Downloader</div>
+        <div class="subtitle">
+          Instagram Reel Downloader is a Ad free and fast Instagram reel
+          Downloader website. Just Copy link from instagram and paste it in the
+          website.
+        </div>
+        <form action="download_reel" method="post">
+          <div class="input">
+            <input
+              type="text"
+              name="reelurl"
+              id="reelurl"
+              placeholder="Instagram Reel url"
+            />
+            <button type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#fff"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="button">Download</div>
+        </form>
+      </div>
+      <div class="right">
+        <img src="static/assets/hero.svg" alt="Instagram" />
+      </div>
+      <!-- </div>n -->
+    </section>
   </body>
 </html>

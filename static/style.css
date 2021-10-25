@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Utility Classes */
+.container {
+  width: 93%;
+  height: 100%;
+  margin: auto;
+}
+
+body {
+  font-family: "Gothic A1", sans-serif;
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+/* NavBar */
+
+nav {
+  height: 7vh;
+  width: 100%;
+  /* background: #333; */
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 1px rgb(122, 122, 122) solid; */
+}
+
+nav .container .logo {
+  font-size: 1.3rem;
+}
+
+nav .container .links a {
+  color: black;
+  background: white;
+  text-decoration: none;
+  padding: 0.6rem 2rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  height: 93vh;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+/* .aligner {
+  display: flex;
+}
+*/
+
+.left {
+  flex: 1;
+}
+.right {
+  flex: 1;
+}
+
+.hero .left .title {
+  font-size: 5.5vh;
+  font-weight: 700;
+  margin-right: 5vw;
+}
+.hero .left .subtitle {
+  /* font-size: 1.3rem; */
+  padding: 2vh 0;
+}
+
+.hero .left .input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.hero .left .input input {
+  width: 70%;
+  background-color: #333333;
+  color: white;
+  padding: 1.1rem 1rem;
+}
+.hero .left .input button {
+  background-color: #333333;
+  padding: 0.73rem 1rem;
+}
+
+.hero .left .button {
+  display: none;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero .right img {
+  width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    height: 100vh;
+  }
+  .hero .right {
+    display: none;
+  }
+  .container {
+    width: 90%;
+  }
+  .hero {
+    align-items: flex-start;
+    padding-top: 15vh;
+  }
+}
