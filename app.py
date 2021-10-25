@@ -1,13 +1,10 @@
-from logging import debug
 from flask import Flask
-from flask import send_from_directory, render_template, request, send_file
-from flask.helpers import flash
-from youtube import youtube
+from flask import render_template, request, send_file, redirect
+
 from instascrape import Reel
-from werkzeug.utils import redirect
-import os
 app = Flask(__name__)
-app.static_folder="./static"
+app.static_folder = "./static"
+
 
 @app.route('/')
 def index():
@@ -19,7 +16,7 @@ def download_reel():
 
     # Instascrape Request
     link = request.form['reelurl']
-    SESSIONID = "47363229164%3AloPLrOXra06I3Z%3A25"
+    SESSIONID = "47363229164%3ABsZWZOQRxmDnYY%3A29"
     headers = {
         "User-Agent":
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
@@ -30,51 +27,10 @@ def download_reel():
     print(reel.video_url)
     # Downloading reel to user
     try:
-        return redirect(reel.video_url)
+        return redirect(reel.video_url+"&dl=1")
     except Exception:
         return "Try Again Later"
 
 
-@app.route("/youtube")
-def hello():
-    return render_template("youtube.html")
-
-
-@app.route("/download_youtube", methods=['POST', 'GET'])
-def download_youtube():
-    link = request.form['reelurl']
-    url = youtube(link)
-    return redirect(url)
- 
-@app.route("/sy", methods=['POST', 'GET'])
-def syllabus():
-    return render_template("syllabus.html",path="https://diploma.vidyalankar.org/wp-content/uploads/Sixth-Semester-Complete-Syllabus-COCMCW.pdf")
-
-@app.route("/eti", methods=['POST', 'GET'])
-def eti():
-    return render_template("syllabus.html",path="../static/emerging.pdf")
-
-
-
-app.config["IMAGE_UPLOADS"] = f"{os.getcwd()}/static/img/uploads"
-@app.route("/upload-image", methods=["GET", "POST"])
-def upload_image():
-
-    if request.method == "POST":
-
-        if request.files:
-
-            image = request.files["image"]
-
-            image.save(os.path.join(
-                app.config["IMAGE_UPLOADS"], image.filename))
-
-            print("Image saved")
-
-            return redirect(request.url)
-
-    return render_template("upload-image.html")
-
-
-if(__name__=="__main__"):
-    app.run(host='0.0.0.0',debug=True)
+if(__name__ == "__main__"):
+    app.run(host='0.0.0.0', debug=True)
