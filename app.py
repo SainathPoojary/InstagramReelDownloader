@@ -16,7 +16,7 @@ def download_reel():
 
     # Instascrape Request
     link = request.form['reelurl']
-    SESSIONID = "47363229164%3ABsZWZOQRxmDnYY%3A29"
+    SESSIONID = ""
     headers = {
         "User-Agent":
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
